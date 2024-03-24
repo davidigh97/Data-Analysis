@@ -12,3 +12,13 @@ SELECT location, population, MAX(total_cases)as Highestinfectioncount, MAX((tota
 FROM`sql covid portfolio`.`covid deaths`WHERE location like '%states' 
 group by population,location
 order by 1,2;
+SELECT location, MAX(total_deaths)as totaldeathcount
+FROM `sql covid portfolio`.`covid deaths`
+WHERE location like '%states% '
+group by location
+order by totaldeathcount desc;
+SELECT continent, MAX(total_deaths) as totaldeathcount
+FROM `sql covid portfolio`.`covid deaths`
+WHERE continent is not null
+group by continent
+order by totaldeathcount desc;
